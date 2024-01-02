@@ -10,7 +10,7 @@
 .site-navigation,
 .site-navigation a:hover,
 .site-navigation ul ul {
-    background-color: #363062;
+    background-color: #000;
 }
 
 .site-navigation ul .dropdown-menu {
@@ -41,9 +41,7 @@
     padding: 0;
 }
 
-.navbar-toggler:active{
-    outline: none;
-    border: none;
+.navbar-toggler:focus{
     box-shadow: none;
 }
 
