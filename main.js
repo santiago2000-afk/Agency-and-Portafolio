@@ -13,10 +13,11 @@ $(function(){
             var toggler = $('.navbar-toggler');
 
             toggler.on('click', function(){
-                var icon = $('.navbar-toggler i');
-                icon.attr("data-feather", "circle");
-                feather.replace();
+               var icon = toggler.find('svg');
+               icon.attr("data-feather", "x");
+               feather.replace();
             });
+
         },
     }
 
