@@ -1,24 +1,35 @@
-$(function(){
-    'use-strict';
-    $(document).ready(function(){
-        main.init();
-    });
+const $dropdown = $(".dropdown");
+const $dropdownToggle = $(".dropdown-toggle");
+const $dropdownMenu = $(".dropdown-menu");
+const showClass = "show";
 
-    var main = {
-        init: function(){
-           main.changeIconToggler();
-        },
-
-        changeIconToggler: function(){
-            var toggler = $('.navbar-toggler');
-
-            toggler.on('click', function(){
-               var icon = toggler.find('svg');
-               icon.attr("data-feather", "x");
-               feather.replace();
-            });
-
-        },
-    }
-
+$(window).on("load resize", function() {
+  if (this.matchMedia("(min-width: 768px)").matches) {
+    $dropdown.hover(
+      function() {
+        const $this = $(this);
+        $this.addClass(showClass);
+        $this.find($dropdownToggle).attr("aria-expanded", "true");
+        $this.find($dropdownMenu).addClass(showClass);
+      },
+      function() {
+        const $this = $(this);
+        $this.removeClass(showClass);
+        $this.find($dropdownToggle).attr("aria-expanded", "false");
+        $this.find($dropdownMenu).removeClass(showClass);
+      }
+    );
+  } else {
+    $dropdown.off("mouseenter mouseleave");
+  }
 });
+
+const MAIN = {
+  init: function() {
+    $(".hamburger").click(function(){
+      $(this).toggleClass("is-active");
+    });
+  },
+};
+
+$(document).ready( MAIN.init );
